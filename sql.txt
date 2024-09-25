@@ -1,0 +1,80 @@
+DROP TABLE tbl_student;
+DROP TABLE tbl_dept;
+DROP TABLE tbl_score;
+
+-- 학생 테이블
+create table tbl_student(
+st_year char(1) not null, -- 학년
+st_class char(2) not null, -- 반
+st_sno char(2) not null, -- 번호
+st_name VARCHAR2(20), -- 이름
+st_birth char(8), -- 생년월일
+st_gender char(1), -- 성별 M F
+st_tell1 char(3), -- 전화1
+st_tell2 char(4), -- 전화2
+st_tell3 char(4), -- 전화3
+constraint pk_student primary key(st_year,st_class,st_sno) -- 여러PK지정
+);
+
+insert into tbl_student (st_year,st_class,st_sno,st_name,st_birth,st_gender,
+st_tell1,st_tell2,st_tell3)
+VALUES('1','01','01','김학생','20020101','F','010','1234','1001');
+insert into tbl_student (st_year,st_class,st_sno,st_name,st_birth,st_gender,
+st_tell1,st_tell2,st_tell3)
+VALUES('1','01','02','이학생','20020201','M','010','1234','1002');
+insert into tbl_student (st_year,st_class,st_sno,st_name,st_birth,st_gender,
+st_tell1,st_tell2,st_tell3)
+VALUES('1','01','03','박학생','20020301','M','010','1234','1003');
+insert into tbl_student (st_year,st_class,st_sno,st_name,st_birth,st_gender,
+st_tell1,st_tell2,st_tell3)
+VALUES('1','02','01','조학생','20020401','M','010','1234','1004');
+insert into tbl_student (st_year,st_class,st_sno,st_name,st_birth,st_gender,
+st_tell1,st_tell2,st_tell3)
+VALUES('1','02','02','유학생','20020501','M','010','1234','1005');
+insert into tbl_student (st_year,st_class,st_sno,st_name,st_birth,st_gender,
+st_tell1,st_tell2,st_tell3)
+VALUES('1','02','03','여학생','20020601','M','010','1234','1006');
+insert into tbl_student (st_year,st_class,st_sno,st_name,st_birth,st_gender,
+st_tell1,st_tell2,st_tell3)
+VALUES('1','03','01','남학생','20020701','F','010','1234','1007');
+insert into tbl_student (st_year,st_class,st_sno,st_name,st_birth,st_gender,
+st_tell1,st_tell2,st_tell3)
+VALUES('1','03','02','황학생','20020801','F','010','1234','1008');
+insert into tbl_student (st_year,st_class,st_sno,st_name,st_birth,st_gender,
+st_tell1,st_tell2,st_tell3)
+VALUES('1','03','03','전학생','20020901','F','010','1234','1009');
+
+-- 교사 테이블
+create table tbl_dept(
+st_year char(1) not null, -- 학년
+st_class char(2) not null, -- 반
+t_name VARCHAR2(20), -- 이름
+CONSTRAINT pk_tdept primary key(st_year,st_class)
+);
+
+insert into tbl_dept(st_year,st_class,t_name)
+values('1','01','김교사');
+insert into tbl_dept(st_year,st_class,t_name)
+values('1','02','이교사');
+insert into tbl_dept(st_year,st_class,t_name)
+values('1','03','박교사');
+-- 성적 테이블
+create table tbl_score(
+st_year char(1), -- 학년
+st_class char(2), -- 반
+st_sno char(2), -- 번호
+kor number(3),
+eng number(3),
+mat number(3),
+CONSTRAINT fk_score FOREIGN KEY(st_year,st_class,st_sno)
+REFERENCES tbl_student(st_year,st_class,st_sno)
+);
+
+insert into tbl_score(st_year,st_class,st_sno,kor,eng,mat)
+values('1','01','01','50','50','50');
+
+select * from tbl_student;
+select * from tbl_dept;
+select * from tbl_score;
+
+commit;
