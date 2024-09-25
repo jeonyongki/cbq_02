@@ -16,7 +16,55 @@
 <article>
 <h2>학생등록</h2>
 <form name="stInput" method="post" action="studentProc.jsp" onsubmit="return check()">
-
+	<table>
+		<tr>
+			<th>학년</th>
+			<td>
+				<input type="text" name="stYear" title="학년">
+			</td>
+		</tr>
+		
+		<tr>
+			<th>반</th>
+			<td>
+				<input type="text" name="stClass" title="반">
+			</td>
+		</tr>
+		
+		<tr>
+			<th>번호</th>
+			<td>
+				<input type="text" name="stSno" title="번호">
+			</td>
+		</tr>
+		
+		<tr>
+			<th>이름</th>
+			<td>
+				<input type="text" name="stName" title="이름">
+			</td>
+		</tr>
+		
+				<tr>
+			<th>생년월일</th>
+			<td>
+				<input type="text" name="stBirth" title="생년월일">
+			</td>
+		</tr>
+		
+		<tr>
+			<th>성별</th>
+			<td>
+				<input type="radio" name="gender" value="M">남
+				<input type="radio" name="gender" value="F">여
+			</td>
+		</tr>
+		
+		<tr>
+			<th>전화번호</th>
+			<td></td>
+		</tr>
+	</table>
 </form>
 </article>
 </section>
@@ -25,17 +73,6 @@
 </footer>
 </body>
 <script type="text/javascript">
-	function check(){
-		const sform = document.forms.stInput;
-		const length = sform.length - 2;
-		for(let i=0; i<length; i++){
-			if(!sform[i].value){
-				alert(sform[i].title+"가 없습니다");
-				sform[i].focus();
-				return false;
-			}
-		}
-		return true;
-	}
+
 </script>
 </html>
