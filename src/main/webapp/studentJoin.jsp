@@ -55,14 +55,24 @@
 		<tr>
 			<th>성별</th>
 			<td>
-				<input type="radio" name="gender" value="M">남
-				<input type="radio" name="gender" value="F">여
+				<input type="radio" name="gender" value="M" checked>남성
+				<input type="radio" name="gender" value="F">여성
 			</td>
 		</tr>
 		
 		<tr>
 			<th>전화번호</th>
-			<td></td>
+			<td>
+				<input type="text" name = "stTell1" class="stTell" title="전화1">-
+				<input type="text" name = "stTell2" class="stTell" title="전화2">-
+				<input type="text" name = "stTell3" class="stTell" title="전화3">
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2">
+				<input type="submit" value="학생등록">
+				<input type="reset" value="다시쓰기">
+			</td>
 		</tr>
 	</table>
 </form>
@@ -73,6 +83,17 @@
 </footer>
 </body>
 <script type="text/javascript">
-
+	function check(){
+		const stForms = document.forms.stInput;
+		const length = stForms.elements.length - 2;
+		for(let i=0; i<length; i++){
+			if(!stForms.elements[i].value){
+				alert(stForms.elements[i].title+"을/를 입력하세요");
+				stForms.elements[i].focus();
+				return false;
+			}
+		}
+		return true;
+	}
 </script>
 </html>

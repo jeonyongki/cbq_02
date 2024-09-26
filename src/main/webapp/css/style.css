@@ -32,6 +32,9 @@ table a {
 h2,h3,h4,h5 {
   text-align: center;
 }
+.stTell{
+	width:50px;
+}
 .btn {
   cursor: pointer;
 }
